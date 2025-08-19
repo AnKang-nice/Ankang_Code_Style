@@ -40,10 +40,10 @@ async function main() {
 		await copyConfigFiles(answers);
 
 		// // 安装依赖
-		await installDependencies(answers);
+		// await installDependencies(answers);
 
-		// // 初始化husky
-		await initHusky(answers);
+		// // // 初始化husky
+		// await initHusky(answers);
 
 		console.log('🎉 代码规范初始化完成！');
 	} catch (error) {

@@ -5,8 +5,9 @@ module.exports = {
 	// 继承 Vue 官方推荐规则
 	extends: [
 		// 绝对路径
+		'plugin:vue/vue3-essential',
 		`${process.cwd()}/node_modules/project-code-rule/configs/eslint/base.js`,
-		'plugin:vue/vue3-essential', // 若支持 Vue 3（推荐）
+		// 若支持 Vue 3（推荐）
 		// 'plugin:vue/recommended', // 若需要兼容 Vue 2
 	],
 	// 解析器配置：处理 Vue 单文件组件
