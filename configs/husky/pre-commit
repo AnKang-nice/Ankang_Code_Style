@@ -44,7 +44,7 @@ NC='\033[0m' # No Color
 
 
 # 定义需要检测的文件列表，用空格分隔
-FILES_TO_CHECK=(".eslintrc.cjs" ".prettierrc.json" ".stylelintrc.cjs" "commitlint.config.js"  ".vscode/settings.json")
+FILES_TO_CHECK=(".eslintrc.cjs" ".prettierrc.cjs" ".stylelintrc.cjs" "commitlint.config.cjs"  ".vscode/settings.json", ".husky/pre-commit", ".husky/commit-msg", ".prettierrc.json")
 
 # 获取暂存区中被修改的文件列表
 MODIFIED_FILES=$(git diff --cached --name-only)
