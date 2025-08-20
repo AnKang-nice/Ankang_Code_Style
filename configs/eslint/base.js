@@ -1,5 +1,13 @@
 module.exports = {
 	extends: ['eslint:recommended', 'prettier'],
+	env: {
+		node: true,
+		es2020: true,
+		commonjs: true,
+	},
+	parserOptions: {
+		ecmaVersion: 2020,
+	},
 	rules: {
 		semi: 2, // 末尾加分号
 		eqeqeq: [2, 'always'], // 必须=== !==
