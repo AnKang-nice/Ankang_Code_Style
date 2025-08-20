@@ -50,19 +50,11 @@ module.exports = {
 		// 注释规则
 		// --------------------------
 		'comment-no-empty': true, // 禁止空注释
-		'comment-whitespace-inside': [
-			// 注释内容前后必须有空格（/* 内容 */）
-			true,
-			{
-				exceptions: ['*'], // 允许 /*! 注释（用于保留版权信息）
-			},
-		],
 
 		// --------------------------
 		// 其他规则
 		// --------------------------
 		'block-no-empty': true, // 禁止空代码块
-		'declaration-block-trailing-semicolon': 'always', // 声明块末尾必须有分号
 		'no-descending-specificity': null, // 暂时关闭「选择器权重不能递减」的检查（视项目情况开启）
 		'color-hex-length': 'short', // 颜色值使用短格式（例：#fff 而非 #ffffff）
 		'unit-no-unknown': true, // 禁止未知的单位（如 px、rem 是合法的，abc 是非法的）
