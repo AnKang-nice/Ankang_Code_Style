@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
  * @param {Object} options 项目配置选项
  */
 function installDependencies(options) {
-	const { framework, preprocessor } = options;
+	const { preprocessor } = options;
 	const deps = [
 		'eslint@^8.57.0',
 		'stylelint',
@@ -16,19 +16,6 @@ function installDependencies(options) {
 		'@commitlint/config-conventional',
 		'eslint-config-prettier',
 	];
-
-	// 添加框架相关依赖
-	if (framework === 'vue') {
-		deps.push(
-			'eslint-plugin-vue@^9.33.0',
-			'vue-eslint-parser',
-			'@babel/eslint-parser',
-			'postcss-html',
-			'stylelint-config-standard-vue'
-		);
-	} else if (framework === 'react') {
-		deps.push('eslint-plugin-react', 'eslint-plugin-react-hooks');
-	}
 
 	// 添加预处理器相关依赖
 	if (preprocessor === 'sass') {
