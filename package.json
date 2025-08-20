@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "init-code-style": "./bin/init.js"
     },
     "repository": {
@@ -13,6 +12,7 @@
     "bin": {
         "init-code-style": "./bin/init.js"
     },
+    
     "keywords": [],
     "author": "Ankang",
     "license": "ISC",
