@@ -77,49 +77,55 @@ async function copyConfigFiles(options) {
 			await fs.copy(sourcePath, destPath);
 
 			// copy完成后   如果项目中有eslint  stylelint 相关配置  则需要继承baseConfig下的配置文件
-			// if (await fs.pathExists(path.join(projectRoot, '.eslintrc.cjs'))) {
-			// 	// 读取项目中的eslint配置文件
-			// 	let eslintConfig = require(path.join(projectRoot, '.eslintrc.cjs'));
-			// 	console.log(eslintConfig, 1111);
-			// 	// 项目中的继承baseConfig下的配置文件  继承不是合并
-			// 	if (!eslintConfig.extends.includes('baseConfig/.eslintrc.base.cjs')) {
-			// 		eslintConfig.extends = [
-			// 			...eslintConfig.extends,
-			// 			'baseConfig/.eslintrc.base.cjs',
-			// 		];
-			// 	}
-			// 	console.log(eslintConfig, 333);
-			// 	eslintConfig = JSON.stringify(eslintConfig);
-			// 	console.log(eslintConfig, 222);
-
-			// 	// await fs.writeFile(path.join(projectRoot, '.eslintrc.cjs'), eslintConfig, 'utf8');
-			// } else {
-			// 	// 不存在 直接把baseConfig下的配置文件复制到项目根目录
-			// 	await fs.copy(
-			// 		path.join(projectRoot, 'baseConfig/.eslintrc.base.cjs'),
-			// 		path.join(projectRoot, '.eslintrc.cjs')
-			// 	);
-			// }
+			if (await fs.pathExists(path.join(projectRoot, '.eslintrc.cjs'))) {
+				// 读取项目中的eslint配置文件
+				// let eslintConfig = require(path.join(projectRoot, '.eslintrc.cjs'));
+				// console.log(eslintConfig, 1111);
+				// // 项目中的继承baseConfig下的配置文件  继承不是合并
+				// if (!eslintConfig.extends.includes('baseConfig/.eslintrc.base.cjs')) {
+				// 	eslintConfig.extends = [
+				// 		...eslintConfig.extends,
+				// 		'baseConfig/.eslintrc.base.cjs',
+				// 	];
+				// }
+				// console.log(eslintConfig, 333);
+				// eslintConfig = JSON.stringify(eslintConfig);
+				// console.log(eslintConfig, 222);
+				// await fs.writeFile(path.join(projectRoot, '.eslintrc.cjs'), eslintConfig, 'utf8');
+			} else {
+				// 不存在 直接把baseConfig下的配置文件复制到项目根目录
+				if (await fs.pathExists(path.join(projectRoot, 'baseConfig/.eslintrc.base.cjs'))) {
+					await fs.copy(
+						path.join(projectRoot, 'baseConfig/.eslintrc.base.cjs'),
+						path.join(projectRoot, '.eslintrc.cjs')
+					);
+				}
+			}
 
 			// 如果项目中有stylelint 相关配置  则需要继承baseConfig下的配置文件
-			// if (await fs.pathExists(path.join(projectRoot, '.stylelintrc.cjs'))) {
-			// 	// 读取项目中的stylelint配置文件
-			// 	const stylelintConfig = require(path.join(projectRoot, '.stylelintrc.cjs'));
-			// 	// 项目中的继承baseConfig下的配置文件  继承不是合并
-			// 	if (!stylelintConfig.extends.includes('baseConfig/.stylelintrc.base.cjs')) {
-			// 		stylelintConfig.extends = [
-			// 			'baseConfig/.stylelintrc.base.cjs',
-			// 			...stylelintConfig.extends,
-			// 		];
-			// 	}
-			// 	await fs.write(path.join(projectRoot, '.stylelintrc.cjs'), stylelintConfig);
-			// } else {
-			// 	// 不存在 直接把baseConfig下的配置文件复制到项目根目录
-			// 	await fs.copy(
-			// 		path.join(projectRoot, 'baseConfig/.stylelintrc.base.cjs'),
-			// 		path.join(projectRoot, '.stylelintrc.cjs')
-			// 	);
-			// }
+			if (await fs.pathExists(path.join(projectRoot, '.stylelintrc.cjs'))) {
+				// 读取项目中的stylelint配置文件
+				// const stylelintConfig = require(path.join(projectRoot, '.stylelintrc.cjs'));
+				// // 项目中的继承baseConfig下的配置文件  继承不是合并
+				// if (!stylelintConfig.extends.includes('baseConfig/.stylelintrc.base.cjs')) {
+				// 	stylelintConfig.extends = [
+				// 		'baseConfig/.stylelintrc.base.cjs',
+				// 		...stylelintConfig.extends,
+				// 	];
+				// }
+				// await fs.write(path.join(projectRoot, '.stylelintrc.cjs'), stylelintConfig);
+			} else {
+				// 不存在 直接把baseConfig下的配置文件复制到项目根目录
+				// baseConfig/.stylelintrc.base.cjs 存在
+				if (
+					await fs.pathExists(path.join(projectRoot, 'baseConfig/.stylelintrc.base.cjs'))
+				) {
+					await fs.copy(
+						path.join(projectRoot, 'baseConfig/.stylelintrc.base.cjs'),
+						path.join(projectRoot, '.stylelintrc.cjs')
+					);
+				}
+			}
 
 			// 给husky钩子添加执行权限
 			if (targetPath.startsWith('.husky/')) {
