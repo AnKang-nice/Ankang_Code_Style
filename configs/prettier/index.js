@@ -41,7 +41,7 @@ module.exports = {
 
     // 箭头函数参数是否添加括号（默认 'always'）
     // 可选值：'always'（(x) => x） | 'avoid'（x => x，单个参数时省略）
-    arrowParens: 'always',
+    arrowParens: 'avoid',
 
     // --------------------------
     // 换行与长度控制

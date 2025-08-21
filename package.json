@@ -12,12 +12,10 @@
     "bin": {
         "init-code-style": "./bin/init.js"
     },
-    
     "keywords": [],
     "author": "Ankang",
     "license": "ISC",
     "description": "project-code-rule",
-    "private": true,
     "peerDependenciesDesc": "我的包需要这些工具才能运行，且版本必须符合要求",
     "peerDependencies": {
         "@commitlint/cli": "^19.6.1",
