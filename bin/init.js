@@ -16,7 +16,6 @@ async function main() {
 			choices: [
 				{ name: 'Sass/SCSS', value: 'sass' },
 				{ name: 'Less', value: 'less' },
-				{ name: 'Stylus', value: 'stylus' },
 				{ name: '无预处理器 (纯CSS)', value: 'css' },
 			],
 			default: 'sass',

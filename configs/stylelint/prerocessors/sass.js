@@ -1,7 +1,7 @@
 module.exports = {
 	extends: [
 		'stylelint-config-standard-scss',
-		`${process.cwd()}/node_modules/project-code-rule/configs/stylelint/base`,
+		'project-code-rule/configs/stylelint/base'
 	],
 	rules: {
 		'scss/dollar-variable-pattern': null, // 允许使用 $ 开头的变量名
